@@ -162,19 +162,24 @@ textarea{
   padding: 0px;
   margin: 0px;
   .task{
-    background: #fff;
-    color: #717385;
-    width: calc(100% + 200px);
-    height: auto;
-    min-height: 50px;
-    line-height: 2;
-    position: relative;
-    padding: 8px 20px;
-    height: auto;
-    margin-bottom: 20px;
+    overflow: hidden;
     border-radius: 5px;
-    transition: background-color 1s;
-    box-shadow: inset 5px 0px 0px 0px #009688;
+    list-style: none;
+    .taskwrapper{
+      cursor: grabbing;
+      background: #fff;
+      color: #717385;
+      width: calc(100%);
+      height: auto;
+      min-height: 50px;
+      line-height: 2;
+      position: relative;
+      padding: 8px 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      transition: background-color 1s;
+      box-shadow: inset 5px 0px 0px 0px #009688;
+    }
     &:after{
       content:"";
       clear: both;
@@ -191,11 +196,15 @@ textarea{
       text-align: center;
     }
     .left{
-      background: green;
+      background: #128D7E url('assets/images/complete.svg');
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: 40px;
       height: 100%;
       top: 0;
       left: -100px;
-      width: 100px;
+      width: 110px;
+      z-index: -1;
     }
     .middle{
       width: 100%;
@@ -207,8 +216,9 @@ textarea{
       background-size: 40px;
       height: 100%;
       top: 0;
-      right: 100px;
-      width: 100px;
+      right: -100px;
+      width: 110px;
+      z-index: -1;
     }
     &:before, &:after{
       position: absolute;

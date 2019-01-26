@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import axios from 'axios';
+import uuid from 'uuid';
 import Todos from './components/tasks/Todos';
 import AddTodo from './components/tasks/AddTodo';
 import Header from './components/layout/Header';
@@ -43,6 +44,7 @@ class App extends Component {
     // Add Task
     addTask = (title) => {
         axios.post('https://jsonplaceholder.typicode.com/todos', {
+            id: uuid.v4(),
             title,
             completed: false
         })

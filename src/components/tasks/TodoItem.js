@@ -134,7 +134,7 @@ class TodoItem extends Component {
         const { id, title } = this.props.todo;
         return (
             <li className="task"
-                style={{left: this.state.left + 'px'}}
+
                 onTouchStart={touchStartEvent => this.handleTouchStart(touchStartEvent)}
                 onTouchMove={touchMoveEvent => this.handleTouchMove(touchMoveEvent)}
                 onTouchEnd={() => this.handleTouchEnd()}
@@ -144,16 +144,18 @@ class TodoItem extends Component {
                 onMouseUp={() => this.handleMouseUp()}
                 onMouseLeave={() => this.handleMouseLeave()}
             >
-                <div className="left">Left</div>
-                <div className="middle">
-                    <span className="task-desc">{title}</span>
-                    <span className="task-time">8am</span>
-                </div>
-                <div className="right"></div>
+                <div className="taskwrapper" style={{left: this.state.left + 'px'}}>
+                    <div className="left"></div>
+                    <div className="middle">
+                        <span className="task-desc">{title}</span>
+                        <span className="task-time">8am</span>
+                    </div>
+                    <div className="right"></div>
 
-                <p>
-                    <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}/>
-                </p>
+                    <p>
+                        <input type="checkbox" onChange={this.props.markComplete.bind(this, id)}/>
+                    </p>
+                </div>
             </li>
         );
     }
